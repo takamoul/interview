@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --white-color: #fff;
+  --primary-color: #008159;
+  --grey-color: #515151;
+  --grey-color-light: #dcd4d4;
+  --grey-color-dark: #515151;
+  --color-danger: #DC0000;
+  --color-placeholder: #D6D6D6;
+}
+body{
+  zoom: 90%;
+}
+.modal.fade.show {
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+background-color: rgba(156, 156, 156, 0.5) !important;
+}
+.modal-backdrop {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    var(--color-placeholder) !important;
+ font-size: 14px !important;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+ color:     var(--color-placeholder) !important;
+ font-size: 14px !important;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+ color:     var(--color-placeholder) !important;
+ font-size: 14px !important;
+
+ opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color:     var(--color-placeholder) !important;
+ font-size: 14px !important;
+
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+ color:     var(--color-placeholder) !important;
+ font-size: 14px !important;
+
+}
+
+::placeholder { /* Most modern browsers support this now. */
+ color:     var(--color-placeholder) !important;
+ font-size: 14px !important;
+}
+.optional{
+  color: var(--grey-color-light);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

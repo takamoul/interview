@@ -1,0 +1,169 @@
+<div class="container-fluid">
+  <div class="project">
+    <div class="project-title">
+        <span>Projects / <span class="add-project">Add Project</span></span>
+      <!-- <hr> -->
+    </div>
+    <div class="project-body">
+      <div class="btn-back" [routerLink]="['/all-projects']"  >
+        <img src="./assets/Add_Project/Back_Arrow.svg" alt="back-img">
+      </div>
+      <form >
+      <div class="project-grid">
+        <div class="project-attachment">
+          <div class="file-attachment">
+            <img src="./assets/Add_Project/Image_Placeholder.svg" alt="attachment-img">
+            <small>Thumbnail image has to be 540x350</small>
+          </div>
+          <button class="btn-upload-attachment">
+            <img src="./assets/Add_Project/Add_Image.svg" alt="upload-attachment-img">
+            <span>Add Image</span>
+          </button>
+        </div>
+
+        <div class="project-info">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="project_title_en">Project Title</label>
+                <input type="text" class="form-control" id="project_title_en" placeholder="Enter your Project Title">
+              </div>
+            </div>
+            <div class="col-lg-6 dir-ar">
+              <div class="form-group">
+                <label for="project_title_ar">عنوان المشروع</label>
+                <input type="text" class="form-control" id="project_title_ar" placeholder="أدخل عنوان المشروع">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="project_description_en">Project Description</label>
+                <textarea type="text" class="form-control" rows="8" id="project_description" placeholder="Enter the Project Description"></textarea>
+              </div>
+            </div>
+            <div class="col-lg-6 dir-ar">
+              <div class="form-group">
+                <label for="project_description_ar">وصف المشروع</label>
+                <textarea type="text" class="form-control" rows="8" id="project_description_ar" placeholder="أدخل وصف المشروع"></textarea>
+              </div>
+            </div>
+            <div class="col-lg-6 ">
+              <div class="form-group">
+                <label for="project_keyword_en">Project Keyword</label>
+                <input type="text" class="form-control" id="project_keyword_en" placeholder="Enter the Keyword Description">
+              </div>
+            </div>
+            <div class="col-lg-6 dir-ar">
+              <div class="form-group">
+                <label for="project_keyword_ar">كلمات مفتاح المشروع </label>
+                <input type="text" class="form-control" id="project_keyword_ar" placeholder="أدخل كلمات مفتاح المشروع">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="project_show">Show this project <small class="optional">(Optional)</small></label>
+                <select class="form-select" id="project_show" >
+                  <option selected>select this project</option>
+                  <option value="Current Project">Current Project</option>
+                  <option value="Standing Project">Standing Project</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="project_page_number">Select Page Number </label>
+                <select class="form-select" id="project_page_number" >
+                  <option selected>select the page number to apprear on the page</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="project_start_date">Project Start Date</label>
+                <input type="date" class="form-control" id="project_start_date" placeholder="Select Start Date">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="project_end_date">Project End Date</label>
+                <input type="date" class="form-control" id="project_end_date" placeholder="Select End Date">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="project_qr_code">QR Code</label>
+                <input type="file" class="form-control" id="project_qr_code">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="project_goal_amount">Goal Amount</label>
+                <input type="number" class="form-control" id="project_goal_amount" placeholder="Spicify the amount for the project">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="project_sms_link">SMS Link</label>
+                <input type="url" class="form-control" id="project_sms_link" placeholder="Enter the SMS Link">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="project_payment">Payment Gatway Link</label>
+                <input type="url" class="form-control" id="project_payment" placeholder="Enter the Payment Gatway Link">
+              </div>
+            </div>
+            <div class="col-12">
+              <hr>
+            </div>
+          </div>
+          <div class="row bank-details">
+            <div class="col-12">
+              <h5>Bank Details</h5>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="bank_name">Bank Name</label>
+                <input type="text" class="form-control" id="bank_name" placeholder="Enter Bank Name">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="bank_iban">IBAN</label>
+                <input type="text" class="form-control" id="bank_iban" placeholder="Enter IBAN">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="account_number">Acount Number</label>
+                <input type="text" class="form-control" id="account_number" placeholder="Enter Account Number">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="swift_number">Swift Number</label>
+                <input type="text" class="form-control" id="swift_number" placeholder="Enter Swift Number">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label for="reference">Reference</label>
+                <input type="text" class="form-control" id="reference" placeholder="Enter Reference">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-btn">
+                <button class="btn-primary">
+                  Submite
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

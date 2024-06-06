@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Project One",
+    "title": "Standing Project",
+    "description": "Urgent Medical Appeal: Support a Sister in Need of Surgery",
+     "src_image":"./assets/projects_images/project_1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Current Project",
+    "title": "Standing Project",
+    "description": "Healing Hands: Join Us in Supporting a Sister's Surgical Journey",
+    "src_image":"./assets/projects_images/project_1.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Project Two",
+    "title": "Current Project",
+    "description": "Healing Hands: Join Us in Supporting a Sister's Surgical Journey",
+    "src_image":"./assets/projects_images/project_1.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Project Two",
+    "title": "Current Project",
+    "description": "I couldn't afford the costs of the wheelchair for my daughter, so...",
+    "src_image":"./assets/projects_images/project_1.jpg"
+  }
+]

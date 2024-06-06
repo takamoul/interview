@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5122" data-name="Rectangle 5122" width="20" height="20" transform="translate(401 487)" fill="#008159" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_15115" data-name="Mask Group 15115" transform="translate(-401 -487)" clip-path="url(#clip-path)">
+    <path id="cloud-upload-alt" d="M14.978,5.955a.86.86,0,0,1-.618-.474,6.709,6.709,0,0,0-7.278-3.7A6.622,6.622,0,0,0,1.762,7.2a6.774,6.774,0,0,0,.028,2.408.828.828,0,0,1-.288.751,4.583,4.583,0,0,0,3.082,7.975H13.75A6.25,6.25,0,0,0,14.978,5.956ZM12.6,11.423a.833.833,0,0,1-1.178,0L10,10v4.167a.833.833,0,0,1-1.667,0V10L6.911,11.423a.833.833,0,1,1-1.178-1.178L7.988,7.989A1.659,1.659,0,0,1,9.155,7.5l.012,0,.012,0a1.657,1.657,0,0,1,1.167.486L12.6,10.245a.832.832,0,0,1,0,1.178Z" transform="translate(401 486.998)" fill="#008159"/>
+  </g>
+</svg>

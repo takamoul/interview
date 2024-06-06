@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="cards-grid">
+    <div class="card-item" cdkDropList
+    #booksList="cdkDropList"
+    [cdkDropListData]="filteredBooks"
+    [cdkDropListConnectedTo]="[selcetedBooksList]"
+    (cdkDropListDropped)="drop($event)">
+      <div class="card-item-content">
+        <div class="card-item-details">
+          <h6> All Books</h6>
+          <div class="mb-4">
+            <input type="text " id="search-text" name="searchText" (input)="searchByTitle($event)"  placeholder="Search on Book" class="form-control " />
+        </div>
+        @if(filteredBooks.length <= 0){
+         <div class="spinner">
+          <mat-spinner></mat-spinner>
+         </div>
+        }
+          @for (book of filteredBooks;track book) {
+            <p class="example-box" cdkDrag>{{book.title}}</p>
+          }
+        </div>
+      </div>
+  </div>
+<div class="card-item" cdkDropList
+#selcetedBooksList="cdkDropList"
+[cdkDropListData]="selectBooks"
+[cdkDropListConnectedTo]="[booksList]"
+(cdkDropListDropped)="drop($event)">
+  <div class="card-item-content">
+    <div class="card-item-details">
+      <h6> Selected Books</h6>
+
+      @for (item of selectBooks ; track item) {
+        <p  cdkDrag>{{item.title}}
+          <span (click)="removeBook(item)">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </span>
+        </p>
+      }
+    </div>
+  </div>
+</div>
+<div class="card-item" [ngStyle]="{'background-color': currentColor?.color}">
+  <div class="card-item-content">
+    <div class="card-item-details">
+     <div class="title">
+      <h6> List preview</h6>
+      <div class="btn-actions">
+        @for (item of colorsPicker; track $index) {
+          <span class="btn-picker" [ngStyle]="{'background-color': item.color}" (click)="changeColor(item)"></span>
+      }
+      </div>
+     </div>
+      <strong>Discover new worlds and ideas with our curated selection of suggested reads</strong>
+      @for (item of selectBooks; track item) {
+        <p  cdkDrag>{{item.title}}</p>
+      }
+    </div>
+  </div>
+</div>
+</div>

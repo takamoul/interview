@@ -1,0 +1,55 @@
+<div class="navbar-container">
+  <div class="container-fluid">
+    <div class="navbar">
+      <div class="img-logo">
+        <img src="./assets/Logo-UAQ-Charity-Association.svg" alt="logo-img">
+      </div>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/all-projects']"  >
+            <img class="nav-link-img" src="./assets/menu_header/Projects.svg" alt="">
+            <span>Projects</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <img  class="nav-link-img" src="./assets/menu_header/Transaction.svg" alt="">
+            <span>Transaction</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <img class="nav-link-img" src="./assets/menu_header/News.svg" alt="">
+            <span>News</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <img class="nav-link-img" src="./assets/menu_header/Beneficiary.svg" alt="">
+            <span>Beneficiary</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <img class="nav-link-img" src="./assets/menu_header/Manage_Users.svg" alt="">
+            <span>Manage Users</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/books']">
+            <img class="nav-link-img" src="./assets/menu_header/Manage_Users.svg" alt="">
+            <span>Books</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <button class="btn-logout">
+      <img  src="./assets/menu_header/Logout.svg" alt="logout-icon">
+      <span>Lagout</span>
+    </button>
+  </div>
+</div>
+<div class="page-contain">
+  <router-outlet></router-outlet>
+</div>
+

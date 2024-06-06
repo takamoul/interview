@@ -1,0 +1,94 @@
+.navbar-container{
+  background: #F8F8F8 0% 0% no-repeat padding-box;
+   opacity: 1;
+  .container-fluid{
+    display: flex ;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 1.5rem;
+    .navbar{
+      .img-logo{
+        width: 65px;
+        height: 55px;
+
+        img{
+          width: inherit;
+        }
+      }
+      .nav{
+        gap: 1rem;
+        padding-left: 2rem;
+        .nav-item{
+          border-radius: 261px;
+          .nav-link{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            letter-spacing: 0px;
+            color: var(--grey-color);
+            transition:.4s ease-in-out;
+            position: relative;
+            background-image: linear-gradient(var(--primary-color), var(--primary-color));
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: 0% 100%;
+            transition: background-size .5s, color .5s;
+            .nav-link-img
+             {
+              width: 22px;
+              height: 22px;
+
+            }
+            span{
+              display: block;
+              margin-left: 12px;
+            }
+          &:hover{
+              background-size: 100% 100%;
+              border-radius: 261px;
+              color: #fff;
+              .nav-link-img{
+                  filter: brightness(0) invert(1);
+              }
+            }
+          }
+          .active{
+            background-size: 100% 100%;
+            border-radius: 261px;
+            color: #fff;
+            .nav-link-img{
+                filter: brightness(0) invert(1);
+            }
+          }
+        }
+      }
+    }
+.btn-logout{
+  border: 0 ;
+  background-color: transparent;
+  display: flex;
+  gap: 10px;
+}
+  }
+}
+.page-contain{
+  padding: 0 10px;
+}
+@media (max-width:768px){
+  .container-fluid {
+    .navbar{
+      gap:30px;
+      .nav{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px !important;
+        padding-left: 0rem !important;
+
+      }
+    }
+    .btn-logout{
+      display: none !important;
+    }
+  }
+}

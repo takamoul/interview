@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <div class="projects">
+    <div class="projects-title">
+      <a class="btn-primary"  [routerLink]="['/new-project']" >
+        <i class="fa-solid fa-circle-plus"></i>
+        <span>Add Project</span>
+      </a>
+      <!-- <hr> -->
+    </div>
+    <div class="projects-body">
+      <div class="projects-grid">
+        @for (project of projects; track project) {
+          <div class="project-item" >
+            <div class="project-item-img">
+            <span class="badge-title">{{project.title}}</span>
+              <img src={{project.src_image}} alt="">
+            </div>
+            <div class="project-item-content">
+              <div class="project-item-details">
+                <p>{{project.description}}</p>
+              </div>
+            </div>
+            <div class="project-item-footer">
+              <button class="btn-edit">
+                <img src="./assets/Project_page/Edit_Project.svg" alt="delete-project-icon">
+                <span>Edit Project</span>
+              </button>
+              <button class="btn-manage">
+                <img src="./assets/Project_page/Manage.svg" alt="delete-project-icon">
+                <span>Manage</span>
+              </button>
+              <button class="btn-trash" (click)="setBufferProject(project)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img src="./assets/Project_page/Delete.svg" alt="delete-project-icon">
+                <span>Delete</span>
+              </button>
+            </div>
+        </div>
+       }
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Project </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src={{bufferProject?.src_image}} class="img-modal-project" alt="project-img">
+          <p>
+            <small>Are you sure you want to delete </small>
+            <small class="description-modal-project">{{bufferProject?.description}} ?</small>
+          </p>
+          <div class="btn-actions">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">No</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
