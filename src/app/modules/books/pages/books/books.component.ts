@@ -28,6 +28,8 @@ export class BooksComponent implements OnInit {
   {id:2,color:"#e3f4ff"},
   {id:3,color:"#e4bcbc"}
 ]
+timer: any
+ isSpinner= true
 currentColor:any = this.colorsPicker[0]
   constructor(private booksService:BooksService) { }
 
@@ -37,6 +39,8 @@ currentColor:any = this.colorsPicker[0]
       next: (res:any) => {
         this.books = res.docs
         this.filteredBooks = res.docs
+        this.filteredBooks.length > 0 ?  this.isSpinner  = false : true
+
       },
       error: (error) => {
         console.log(error);
@@ -60,10 +64,23 @@ changeColor(color:any){
   this.currentColor = color
 }
 searchByTitle(event:any){
+  this.isSpinner = true
+  this.filteredBooks =[]
+  clearTimeout(this.timer)
   this.searchText = event.target.value
-  this.filteredBooks = this.books.filter((book:any)=>{
-    return book.title.toLowerCase().includes(this.searchText.toLowerCase())
-  })
+  this.timer  = setTimeout(()=>{
+    if(!this.searchText){
+      this.searchText ="the lord of the rings"
+    }
+    const encodedQuery = encodeURIComponent(this.searchText.replace(/ /g, '+'));
+    this.booksService.searchOnBooks(encodedQuery).subscribe((res:any)=>{
+      this.filteredBooks = res.docs
+      console.log("this.filteredBooks",this.filteredBooks)
+      console.log(" res.docs", res.docs)
+      this.isSpinner = false
+    })
+  },1500)
+
 }
 removeBook(book: any): void {
   // Find the index of the book in the selectBooks array

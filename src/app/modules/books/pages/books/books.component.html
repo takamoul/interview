@@ -11,7 +11,7 @@
           <div class="mb-4">
             <input type="text " id="search-text" name="searchText" (input)="searchByTitle($event)"  placeholder="Search on Book" class="form-control " />
         </div>
-        @if(filteredBooks.length <= 0){
+        @if(isSpinner){
          <div class="spinner">
           <mat-spinner></mat-spinner>
          </div>
@@ -30,7 +30,6 @@
   <div class="card-item-content">
     <div class="card-item-details">
       <h6> Selected Books</h6>
-
       @for (item of selectBooks ; track item) {
         <p  cdkDrag>{{item.title}}
           <span (click)="removeBook(item)">

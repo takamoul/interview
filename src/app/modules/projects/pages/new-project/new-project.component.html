@@ -8,62 +8,111 @@
       <div class="btn-back" [routerLink]="['/all-projects']"  >
         <img src="./assets/Add_Project/Back_Arrow.svg" alt="back-img">
       </div>
-      <form >
+      <form [formGroup]="projectForm" (ngSubmit)="addProject()">
       <div class="project-grid">
         <div class="project-attachment">
           <div class="file-attachment">
-            <img src="./assets/Add_Project/Image_Placeholder.svg" alt="attachment-img">
-            <small>Thumbnail image has to be 540x350</small>
+            <img [ngClass]="{ 'img-content': projectImage }" [attr.src]="projectImage ? projectImage: './assets/Add_Project/Image_Placeholder.svg'" alt="attachment-img">
+           @if(!projectImage){ <small>Thumbnail image has to be 540x350</small>}
           </div>
-          <button class="btn-upload-attachment">
+          @if (submitted && f['image'].errors) {
+            <div class="alert-required">
+              @if (f['image'].errors['required']) {
+              <div> project image is required</div>
+              }
+            </div>
+            }
+          <button type="button" class="btn-upload-attachment">
             <img src="./assets/Add_Project/Add_Image.svg" alt="upload-attachment-img">
-            <span>Add Image</span>
+            <label for="image">Add Image</label>
+            <input type="file" id="image" accept="image/*"  hidden (change)="selectImage($event)">
           </button>
         </div>
-
         <div class="project-info">
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="project_title_en">Project Title</label>
-                <input type="text" class="form-control" id="project_title_en" placeholder="Enter your Project Title">
+                <input type="text" class="form-control" id="project_title_en" formControlName="titleEn" placeholder="Enter your Project Title">
+               @if (submitted && f['titleEn'].errors) {
+                <div class="alert-required">
+                  @if (f['titleEn'].errors['required']) {
+                  <div>title  is required</div>
+                  }
+                </div>
+                }
               </div>
             </div>
             <div class="col-lg-6 dir-ar">
               <div class="form-group">
                 <label for="project_title_ar">عنوان المشروع</label>
-                <input type="text" class="form-control" id="project_title_ar" placeholder="أدخل عنوان المشروع">
+                <input type="text" class="form-control" id="project_title_ar"  formControlName="titleAr"placeholder="أدخل عنوان المشروع">
+                @if (submitted && f['titleAr'].errors) {
+                  <div class="alert-required">
+                    @if (f['titleAr'].errors['required']) {
+                    <div>العنوان مطلوب</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="project_description_en">Project Description</label>
-                <textarea type="text" class="form-control" rows="8" id="project_description" placeholder="Enter the Project Description"></textarea>
+                <textarea type="text" class="form-control" rows="8" id="project_description" formControlName="descriptionEn" placeholder="Enter the Project Description"></textarea>
+                @if (submitted && f['descriptionEn'].errors) {
+                  <div class="alert-required">
+                    @if (f['descriptionEn'].errors['required']) {
+                    <div>description  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6 dir-ar">
               <div class="form-group">
                 <label for="project_description_ar">وصف المشروع</label>
-                <textarea type="text" class="form-control" rows="8" id="project_description_ar" placeholder="أدخل وصف المشروع"></textarea>
+                <textarea type="text" class="form-control" rows="8" id="project_description_ar" formControlName="descriptionAr" placeholder="أدخل وصف المشروع"></textarea>
+                @if (submitted && f['descriptionAr'].errors) {
+                  <div class="alert-required">
+                    @if (f['descriptionAr'].errors['required']) {
+                    <div>الوصف مطلوب</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6 ">
               <div class="form-group">
                 <label for="project_keyword_en">Project Keyword</label>
-                <input type="text" class="form-control" id="project_keyword_en" placeholder="Enter the Keyword Description">
+                <input type="text" class="form-control" id="project_keyword_en" formControlName="keywordsEn" placeholder="Enter the Keyword Description">
+                @if (submitted && f['keywordsEn'].errors) {
+                  <div class="alert-required">
+                    @if (f['keywordsEn'].errors['required']) {
+                    <div>keywords  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6 dir-ar">
               <div class="form-group">
                 <label for="project_keyword_ar">كلمات مفتاح المشروع </label>
-                <input type="text" class="form-control" id="project_keyword_ar" placeholder="أدخل كلمات مفتاح المشروع">
+                <input type="text" class="form-control" id="project_keyword_ar"  formControlName="keywordsAr"placeholder="أدخل كلمات مفتاح المشروع">
+                @if (submitted && f['keywordsEn'].errors) {
+                  <div class="alert-required">
+                    @if (f['keywordsEn'].errors['required']) {
+                    <div>الكلمات المفتاحية مطلوبة </div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="project_show">Show this project <small class="optional">(Optional)</small></label>
-                <select class="form-select" id="project_show" >
-                  <option selected>select this project</option>
+                <select class="form-select" formControlName="projectShow"  id="project_show" >
+                  <option value="" selected>select this project</option>
                   <option value="Current Project">Current Project</option>
                   <option value="Standing Project">Standing Project</option>
                 </select>
@@ -72,47 +121,96 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="project_page_number">Select Page Number </label>
-                <select class="form-select" id="project_page_number" >
-                  <option selected>select the page number to apprear on the page</option>
+                <select class="form-select" formControlName="pageNumber" id="project_page_number" >
+                  <option value="" selected>select the page number to apprear on the page</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                 </select>
+                @if (submitted && f['pageNumber'].errors) {
+                  <div class="alert-required">
+                    @if (f['pageNumber'].errors['required']) {
+                    <div>pageNumber  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="project_start_date">Project Start Date</label>
-                <input type="date" class="form-control" id="project_start_date" placeholder="Select Start Date">
+                <input type="date" class="form-control" formControlName="startDate" id="project_start_date" placeholder="Select Start Date">
+                @if (submitted && f['startDate'].errors) {
+                  <div class="alert-required">
+                    @if (f['startDate'].errors['required']) {
+                    <div>start date  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="project_end_date">Project End Date</label>
-                <input type="date" class="form-control" id="project_end_date" placeholder="Select End Date">
+                <input type="date" class="form-control" formControlName="startEnd"  id="project_end_date" placeholder="Select End Date">
+                @if (submitted && f['startEnd'].errors) {
+                  <div class="alert-required">
+                    @if (f['startEnd'].errors['required']) {
+                    <div>start end  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="project_qr_code">QR Code</label>
-                <input type="file" class="form-control" id="project_qr_code">
-              </div>
+                <input type="file" class="form-control" id="project_qr_code" accept="image/*"  (change)="selectQrCode($event)">
+                @if (submitted && f['qrCode'].errors) {
+                  <div class="alert-required">
+                    @if (f['qrCode'].errors['qrCode']) {
+                    <div>qr code  is required</div>
+                    }
+                  </div>
+                  }
+                </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="project_goal_amount">Goal Amount</label>
-                <input type="number" class="form-control" id="project_goal_amount" placeholder="Spicify the amount for the project">
+                <input type="number" class="form-control" id="project_goal_amount" formControlName="goalAmount" placeholder="Spicify the amount for the project">
+               @if (submitted && f['goalAmount'].errors) {
+                <div class="alert-required">
+                  @if (f['goalAmount'].errors['required']) {
+                  <div>goal amount  is required</div>
+                  }
+                </div>
+                }
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="project_sms_link">SMS Link</label>
-                <input type="url" class="form-control" id="project_sms_link" placeholder="Enter the SMS Link">
+                <input type="url" class="form-control" id="project_sms_link" formControlName="smsLink" placeholder="Enter the SMS Link">
+                @if (submitted &&f['smsLink'].errors) {
+                  <div class="alert-required">
+                    @if (f['smsLink'].errors['required']) {
+                    <div>sms link  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="project_payment">Payment Gatway Link</label>
-                <input type="url" class="form-control" id="project_payment" placeholder="Enter the Payment Gatway Link">
+                <input type="url" class="form-control" id="project_payment" formControlName="paymentLink" placeholder="Enter the Payment Gatway Link">
+                @if (submitted && f['paymentLink'].errors) {
+                  <div class="alert-required">
+                    @if (f['paymentLink'].errors['required']) {
+                    <div>payment link  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-12">
@@ -126,37 +224,72 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="bank_name">Bank Name</label>
-                <input type="text" class="form-control" id="bank_name" placeholder="Enter Bank Name">
+                <input type="text" class="form-control" id="bank_name" formControlName="bankName" placeholder="Enter Bank Name">
+                @if (submitted &&  f['bankName'].errors) {
+                  <div class="alert-required">
+                    @if (f['bankName'].errors['required']) {
+                    <div>bank name  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="bank_iban">IBAN</label>
-                <input type="text" class="form-control" id="bank_iban" placeholder="Enter IBAN">
+                <input type="text" class="form-control" formControlName="iban" id="bank_iban" placeholder="Enter IBAN">
+                @if (submitted && f['iban'].errors) {
+                  <div class="alert-required">
+                    @if (f['iban'].errors['required']) {
+                    <div>iban  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="account_number">Acount Number</label>
-                <input type="text" class="form-control" id="account_number" placeholder="Enter Account Number">
+                <input type="text" class="form-control" id="account_number" formControlName="accountNumber" placeholder="Enter Account Number">
+                @if (submitted && f['accountNumber'].errors) {
+                  <div class="alert-required">
+                    @if (f['accountNumber'].errors['required']) {
+                    <div>account number  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="swift_number">Swift Number</label>
-                <input type="text" class="form-control" id="swift_number" placeholder="Enter Swift Number">
+                <input type="text" class="form-control" id="swift_number" formControlName="swiftNumber" placeholder="Enter Swift Number">
+                @if (submitted && f['swiftNumber'].errors) {
+                  <div class="alert-required">
+                    @if (f['swiftNumber'].errors['required']) {
+                    <div>swift number  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-12">
               <div class="form-group">
                 <label for="reference">Reference</label>
-                <input type="text" class="form-control" id="reference" placeholder="Enter Reference">
+                <input type="text" class="form-control" id="reference" formControlName="reference" placeholder="Enter Reference">
+                @if (submitted && f['reference'].errors) {
+                  <div class="alert-required">
+                    @if (f['reference'].errors['required']) {
+                    <div>reference  is required</div>
+                    }
+                  </div>
+                  }
               </div>
             </div>
             <div class="col-12">
               <div class="form-btn">
-                <button class="btn-primary">
-                  Submite
+                <button type="submit" class="btn-primary">
+                  Submit
                 </button>
               </div>
             </div>

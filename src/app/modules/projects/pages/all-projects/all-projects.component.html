@@ -12,12 +12,12 @@
         @for (project of projects; track project) {
           <div class="project-item" >
             <div class="project-item-img">
-            <span class="badge-title">{{project.title}}</span>
-              <img src={{project.src_image}} alt="">
+            <span class="badge-title">{{project.projectShow}}</span>
+              <img src={{project.image}} alt="">
             </div>
             <div class="project-item-content">
               <div class="project-item-details">
-                <p>{{project.description}}</p>
+                <p>{{project.descriptionEn}}</p>
               </div>
             </div>
             <div class="project-item-footer">
@@ -49,14 +49,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img src={{bufferProject?.src_image}} class="img-modal-project" alt="project-img">
+        <img src={{bufferProject?.image}} class="img-modal-project" alt="project-img">
           <p>
             <small>Are you sure you want to delete </small>
             <small class="description-modal-project">{{bufferProject?.description}} ?</small>
           </p>
           <div class="btn-actions">
             <button type="button" class="btn btn-light" data-bs-dismiss="modal">No</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
           </div>
       </div>
     </div>

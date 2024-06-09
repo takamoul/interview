@@ -10,6 +10,7 @@ import { BooksModule } from './modules/books/books.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TagInputModule } from 'ngx-chips';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BooksModule,
     DragDropModule,
     FormsModule,
-    ReactiveFormsModule,
+    TagInputModule
   ],
   exports:[
     DragDropModule,
     FormsModule,
     ReactiveFormsModule,
+    TagInputModule
   ],
   providers: [
     provideAnimationsAsync()

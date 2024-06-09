@@ -22,6 +22,8 @@
     "@angular/router": "^17.3.0",
     "bootstrap": "^5.3.3",
     "ng-pipes": "^0.1.5",
+    "ngx-chips": "^3.0.0",
+    "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
